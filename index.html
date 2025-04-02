@@ -12,6 +12,8 @@
             text-align: center;
             padding: 20px;
             font-size: 20px; /* Увеличенный шрифт */
+            margin: 0;
+            box-sizing: border-box;
         }
         .header {
             display: flex;
@@ -19,6 +21,7 @@
             justify-content: center;
             gap: 20px;
             margin-bottom: 20px;
+            flex-wrap: wrap; /* Добавлено для мобильных устройств */
         }
         .header img {
             width: 300px; /* Квадратный размер */
@@ -29,6 +32,8 @@
         }
         .header-text {
             text-align: left;
+            max-width: 500px; /* Ограничим ширину текста */
+            margin-bottom: 20px;
         }
         .gallery {
             display: grid;
@@ -43,6 +48,40 @@
             object-fit: cover;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Адаптивность для мобильных устройств */
+        @media (max-width: 768px) {
+            body {
+                font-size: 18px; /* Меньше шрифт для мобильных устройств */
+            }
+            .header {
+                flex-direction: column; /* Столбик на мобильных устройствах */
+                align-items: center;
+                gap: 10px;
+            }
+            .header img {
+                width: 80%; /* Уменьшаем размер изображения */
+                height: auto;
+            }
+            .gallery {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Уменьшаем колонки на мобильных устройствах */
+            }
+            .gallery img {
+                height: 250px; /* Меньше высота для мобильных */
+            }
+        }
+
+        /* Адаптивность для планшетов */
+        @media (max-width: 1024px) {
+            .header {
+                flex-direction: column; /* Столбик на планшетах */
+                align-items: center;
+                gap: 15px;
+            }
+            .gallery {
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Немного меньше колонок */
+            }
         }
     </style>
 </head>
